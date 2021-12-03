@@ -1,43 +1,63 @@
 #!/bin/zsh
 
-# Config
-root=/Users/$USER
-col_norm='\033[0;32m'
-col_impo='\033[0;31m'
-col_end='\033[0m'
+# Import functions to script
+. ./shell_functions.sh
 
 # This file installs and configures 3 parts
 #     Miniconda and the base python installation, setting up the build conda environment
 #     Pycharm and setting it up to the build environment python interpreter
 #     Postgres, postgis and PgAdmin, and setting up the vttt database
 
+clear
+
 # Introduction to what is going to happen
-cd $root
-echo $col_norm Denne fil vil installere alle de fornoedne programmer til kurset $col_end
-echo $col_norm Samt give en kort beskrivelse af hvad der bliver installeret, og hvorfor $col_end
-echo $col_norm Den forventede tid til installation samt opsaetning er ca. en time $col_end
-echo .
-echo $col_norm Dette program har tre forskellige farver $col_end
-echo $col_norm Denne farve er hjaelpe tekst, som guider dig igennem installationen $col_end
+p_n "Der skal afvikles to filer for at installere alt software til brug i kurset Vej- og Trafikdatabehandling"
+p_n "Denne fil vil installere to pakkehåndteringsprogrammer, homebrew og miniconda, hvor igennem vi installere resten af softwaren."
+p_s
+p_n "Den forventede tid til den samlede installation samt opsætning er ca. en time"
+p_s
+p_n "Dette program har tre forskellige farver"
+p_n "Denne farve er hjælpe tekst, som guider dig igennem installationen"
 echo Denne farve er tekst skrevet af programmerne der installeres
-echo $col_impo Denne farve er naar der er noget vigtigt du skal vaere opmaerksom paa $col_end
-echo .
-echo $col_impo FOER DU GAAR IGANG $col_end
-echo $col_impo Hav mindst \1\0GB plads ledig. Der gives hjaelp til afinstallation i slutningen af kurset $col_end
-echo $col_impo Efter du trykker enter skal du give dit password du bruger til denne computer $col_end
-echo .
-echo $col_norm Installationen af hvert program vil give lidt tekst til at forstaa hvad der er installeret, samt hvorfor det er relevant $col_end
-echo $col_norm Naar du trykker enter, vil miniconda blive downloadet og installeret $col_end
+p_i "Denne farve er når der er noget vigtigt du skal være opmærksom på"
+p_s
+p_i "----------------------------------"
+p_i "FØR DU GÅR IGANG"
+p_i "Hav mindst 10GB ledig plads."
+p_i "Nogle af programmerne vil kræve dit password til denne computer, du vil blive bedt om det når det er nødvendigt."
+p_i "----------------------------------"
+p_s
+p_n "Installationen af hvert program vil præsenterer lidt tekst til at forstå hvad der er installeret, samt hvorfor det er relevant"
+p_n "Når du trykker enter, vil miniconda blive downloadet og installeret"
 read something
 
 # Download homebrew (only for mac)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+cd $root
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    echo "Homebrew er allerede installeret, skipper installation af den."
+    #brew update
+fi
 
+p_s
 # Download miniconda sh.
-brew install --cask miniconda
-conda init "$(basename "${SHELL}")"
 
-echo $col_norm Miniconda er er et program som holder styr paa programmeringssproget python $col_end
-echo $col_norm Grundet mac er som det er, saa kraeves det at terminalen skal genstarte $col_end
-echo $col_impo Tryk paa enter, og luk derefter terminalen. Start saa den anden installations fil $col_end
+which -s conda
+if [[ $? != 0 ]] ; then
+    # Install miniconda
+    brew install --cask miniconda
+    conda init "$(basename "${SHELL}")"
+else
+    echo "conda er allerede installet, skipper installation af den."
+fi
+
+p_s
+p_n "Miniconda er er et pakkehåndterings program der kan holde styre på udviklingsmiljøet python du skal arbejde i."
+p_s
+p_n "Terminalen skal genstartes nu. Derefter skal du afvikle mac_install_2.sh"
+p_s
+p_i "Tryk på enter, og luk derefter terminalen. Start så den anden installations fil"
 read something
