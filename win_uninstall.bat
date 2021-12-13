@@ -40,7 +40,6 @@ pause
 Rem Uninstall miniconda windows.
 rmdir %root%\miniconda3 /s /q
 rmdir %root%\PyCharm /s /q
-rmdir %root%\PycharmProjects /s /q
 rmdir %root%\pgdatabase /s /q
 rmdir %root%\.conda /s /q
 rmdir "%root%\AppData\Local\Programs\pgAdmin 4" /s /q
