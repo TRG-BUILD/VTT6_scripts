@@ -1,31 +1,40 @@
 #!/bin/zsh
+. ./shell_functions.sh
 
-# Config
-root=/Users/$USER
-col_norm='\033[0;32m'
-col_impo='\033[0;31m'
-col_end='\033[0m'
-
+clear
 # Introduction to what is going to happen
 cd $root
-echo $col_norm Denne fil vil afinstallere miniconda og dermed ogsaa python $col_end
-echo $col_impo ADVARSEL: Den vil desuden ogsaa slette alle din Pycharm Projekt filer $col_end
-echo $col_impo Hvis du flytter filerne du oensker at gemme, ud paa skrivebordet vil de ikke blive slettet $col_end
-echo $col_impo Oensker du at flytte filer, saa luk terminalen UDEN at trykke enter, inden du flytter filerne $col_end
-echo .
-echo $col_impo Efter du trykker enter skal du give dit password du bruger til denne computer $col_end
+p_n "Denne fil vil afinstallere miniconda og dermed også python"
+p_s
+p_n "Dit arbejde under $root/PycharmProjects vil ikke slettes"
+
+p_s
+p_i "Efter du trykker enter skal du give dit password du bruger til denne computer"
 read something
+
+which -s conda
+if [[ $? == 0 ]] ; then
+    conda deactivate
+    conda deactivate
+else
+    echo ""
+fi
 
 #Rem Uninstall miniconda mac.
 brew uninstall --force --cask miniconda
 brew uninstall --force --cask pycharm-ce
+sed -ie '/>>> conda/,/initialize <<</g' "$shellrc"
 sudo rm -r ~/Library/Application Support/JetBrains/PyCharm2021.2
 sudo rm -r ~/Library/Caches/JetBrains/PyCharm2021.2
 sudo rm -r ~/.matplotlib
-sudo rm -r $root/PycharmProjects
+#sudo rm -r $root/PycharmProjects
 brew uninstall --force --cask pgadmin4
 sudo rm -r $root/pgdatabase
 
-echo $col_norm Alt skulle vaere korrekt afinstalleret $col_end
-echo $col_norm Tryk enter for at lukke terminalen $col_end
+p_s
+p_n "Alt skulle vaere korrekt afinstalleret"
+p_n "Tryk enter for at lukke terminalen"
+
+. "$shellrc"
+
 read something
