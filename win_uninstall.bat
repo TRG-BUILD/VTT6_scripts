@@ -1,7 +1,7 @@
 @ECHO off
 
 :: Get variables
-call win_variables.bat
+call %~dp0win_variables.bat
 
 Rem Introduction to what is going to happen
 cd %root%
