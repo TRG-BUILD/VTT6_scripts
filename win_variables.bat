@@ -1,6 +1,9 @@
 @ECHO off
 
 REM Config
+
+chcp 1252
+
 Rem an overview of all non-constant variables
 set root=C:\Users\%USERNAME%
 set col_impo=[91m
