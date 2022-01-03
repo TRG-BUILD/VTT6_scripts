@@ -39,4 +39,16 @@ rmdir "%root%\AppData\Local\Programs\pgAdmin 4" /s /q
 call :p_n "%Hvis den siger noget med "delete" eller "not found" er alt korrekt afinstalleret"
 call :p_n "%Tryk enter for at lukke terminalen "
 pause
-exit
+EXIT /B %ERRORLEVEL%
+
+call :p_n
+echo %col_norm%%~1%col_end%
+EXIT /B
+
+call :p_i
+echo %col_impor%%~1%col_end%
+EXIT /B
+
+call :p_s
+echo.
+EXIT /B
