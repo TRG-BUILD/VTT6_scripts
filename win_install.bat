@@ -52,15 +52,15 @@ call bitsadmin /transfer minicondaInstall %miniconda_url%  %root%\%miniconda_fil
 call bitsadmin /complete minicondaInstall
 
 call bitsadmin /create pycharmInstall
-call bitsadmin /transfer pycharmInstall https://download.jetbrains.com/python/pycharm-community-2021.1.3.exe %root%\pycharm.exe
+call bitsadmin /transfer pycharmInstall %pycharm_url% %root%\%pycharm_file%
 call bitsadmin /complete pycharmInstall
 
 call bitsadmin /create pgadminInstall
-call bitsadmin /transfer pgadminInstall https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.3/windows/pgadmin4-6.3-x64.exe %root%\pgadmin.exe
+call bitsadmin /transfer pgadminInstall %pgadmin_url% %root%\%pgadmin_file%
 call bitsadmin /complete pgadminInstall
 
 call bitsadmin /create postgisInstall
-call bitsadmin /transfer postgisInstall http://download.osgeo.org/postgis/windows/pg13/postgis-bundle-pg13-3.1.2x64.zip %root%\postgis-bundle-pg13-3.1.2x64.zip
+call bitsadmin /transfer postgisInstall %postgis_url% %root%\%postgis_file%
 call bitsadmin /complete postgisInstall
 
 
