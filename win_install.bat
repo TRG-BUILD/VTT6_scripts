@@ -301,14 +301,14 @@ pause
 
 EXIT /B %ERRORLEVEL%
 
-call :p_n
+:p_n
 echo %col_norm%%~1%col_end%
-EXIT /B
+EXIT /B 0
 
-call :p_i
+:p_i
 echo %col_impor%%~1%col_end%
-EXIT /B
-
-call :p_s
+EXIT /B 0
+s
+:p_s
 echo.
-EXIT /B
+EXIT /B 0
