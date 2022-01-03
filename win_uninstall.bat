@@ -7,7 +7,7 @@ Rem Introduction to what is going to happen
 cd %root%
 call :p_n "Denne fil vil afinstallere alt der er brugt i kurset"
 call :p_s
-call :p_i "Ã˜nsker du IKKE dette, sÃ¥ luk terminalen UDEN at trykke enter"
+call :p_i "Ønsker du IKKE dette, så luk terminalen UDEN at trykke enter"
 pause
 
 Rem Make sure it is run in admin mode (to reduce errors)
@@ -20,11 +20,11 @@ if %errorLevel% == 0 (
     pause
     exit
     )
-call :p_n "SÃ¸g efter 'Add or Remove Programs' / 'Tilfoej eller Fjern Programmer'"
-call :p_n "SÃ¸g efter Pycharm, PgAdmin og Miniconda og afinstaller (i den raekefoelge)"
+call :p_n "Søg efter 'Add or Remove Programs' / 'Tilfoej eller Fjern Programmer'"
+call :p_n "Søg efter Pycharm, PgAdmin og Miniconda og afinstaller (i den raekefoelge)"
 call :p_i "Hvis den siger den ikke kan afinstallere pga. programmet er i brug, "
-call :p_i "sÃ¥ luk alle dine programmer, hÃ¸jreklik paa bjÃ¦lken i bunden af skrivebordet "
-call :p_n "og vÃ¦lg Taskmanager/Joblisten. Find programmet, hÃ¸jreklik og End Task / Afslut Job og prÃ¸v igen "
+call :p_i "så luk alle dine programmer, højreklik paa bjælken i bunden af skrivebordet "
+call :p_n "og vælg Taskmanager/Joblisten. Find programmet, højreklik og End Task / Afslut Job og prøv igen "
 call :p_n "Efter det kan du trykker videre"
 echo .
 pause
