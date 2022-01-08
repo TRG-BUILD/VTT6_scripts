@@ -2,5 +2,4 @@
 
 
 echo "Starting postgresql database..."
-pg_ctl -D $HOME/pgdatabase -l logfile start
-
+pg_ctl -D ~/pgdatabase -l logfile start

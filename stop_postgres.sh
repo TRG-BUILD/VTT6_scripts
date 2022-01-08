@@ -2,5 +2,5 @@
 
 
 echo "Stopping postgresql database..."
-pg_ctl -D $HOME/pgdatabase -l logfile stop
+pg_ctl -D ~/pgdatabase -l logfile stop
 
