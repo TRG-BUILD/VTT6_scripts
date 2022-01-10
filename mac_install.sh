@@ -238,8 +238,6 @@ read something
 
 p_n "2. I popup vinduet, tryk på Open og find projektet PyCharmProjects "
 p_n "   Dobbelt klik og åben projektet. Der skulle stå VTT6 i øvre venstre hjørne et sted "
-p_n "   I vil muligvis få en besked i nedre højre hjørne om at der mangler en github mappe "
-p_n "   Den mappe er fjernet, da i ikke har behov for det, så i kan se bort fra fejlen "
 p_n "Tryk enter for at fortsætte "
 read something
 
