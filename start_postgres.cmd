@@ -1,5 +1,6 @@
 @ECHO off
 chcp 1252 >nul
+call %~dp0win_variables.bat
 
 call %root%\miniconda3\Scripts\activate.bat %root%\miniconda3  >> %logfile%
 
