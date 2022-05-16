@@ -5,7 +5,6 @@ chcp 1252 >nul
 set stien=%~dp0
 set stien=%stien: =LLLLL% 
 
-echo %stien%
 
 echo %stien% | FIND /I "LLLLL">Nul && ( 
 echo Programmet kan ikke køre, da installations mappen ligger i en mappe med mellemrum
