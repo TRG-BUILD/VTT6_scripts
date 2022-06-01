@@ -27,7 +27,9 @@ Goto you directory, where you downloaded the installation files.
 
 If it is in your download folder then go to directory by entering:
 ```
-cd ~/Downloads/VTT6_scripts-1.0
+cd ~/Downloads/unzip
+VTT6_scripts-1.2.zip 
+cd VTT6_scripts-1.2
 ```
 
 Install by entering:
