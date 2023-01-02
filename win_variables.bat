@@ -25,7 +25,7 @@ set postgis_url=https://download.osgeo.org/postgis/windows/pg14/archive/postgis-
 set postgis_file=postgis-bundle-pg14-3.1.4x64.zip
 set postgis_logfile=postgis.log
 		
-set pgadmin_url=https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.3/windows/pgadmin4-6.3-x64.exe
+set pgadmin_url=https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.9/windows/pgadmin4-6.9-x64.exe
 set pgadmin_file=pgadmin.exe
 set pgadmin_logfile=pgadmin.log
 
