@@ -1,14 +1,15 @@
-@ECHO off
+@ECHO on
 
 :: Get variables
 call %~dp0win_variables.bat
+pause
 
 Rem Introduction to what is going to happen
 cd %root%
 echo.
 call :p_n "Denne fil vil afinstallere alt der er brugt i kurset"
 call :p_s
-call :p_i "Ønsker du IKKE dette, så luk terminalen UDEN at trykke enter"
+call :p_i "Ã˜nsker du IKKE dette, sÃ¥ luk terminalen UDEN at trykke enter"
 pause
 
 Rem Make sure it is run in admin mode (to reduce errors)
@@ -21,19 +22,19 @@ if %errorLevel% == 0 (
     pause
     exit
     )
-echo %col_norm% Om lidt starter afinstallationsprogrammerne automatisk, hold øje med om der kommer tre programmer til afinstallering: pgAdmin, PyCharm og miniconda
-echo %col_norm% Sker det ikke så gå i:
+echo %col_norm% Om lidt starter afinstallationsprogrammerne automatisk, hold ?je med om der kommer tre programmer til afinstallering: pgAdmin, PyCharm og miniconda
+echo %col_norm% Sker det ikke s? g? i:
 echo %col_norm% 'Add or Remove Programs' / 'Tilfoej eller Fjern Programmer'
-echo %col_norm% Søg efter Pycharm, PgAdmin og Miniconda og afinstaller (i den raekefoelge)
-echo %col_norm% Hvis den siger den ikke kan afinstallere pga. programmet er i brug, så luk alle dine programmer, højreklik paa bjælken i bunden af skrivebordet og vælg Taskmanager/Joblisten. Find programmet, højreklik og End Task / Afslut Job og prøv igen
+echo %col_norm% S?g efter Pycharm, PgAdmin og Miniconda og afinstaller (i den raekefoelge)
+echo %col_norm% Hvis den siger den ikke kan afinstallere pga. programmet er i brug, s? luk alle dine programmer, h?jreklik paa bj?lken i bunden af skrivebordet og v?lg Taskmanager/Joblisten. Find programmet, h?jreklik og End Task / Afslut Job og pr?v igen
 echo.
 echo.
 echo %col_impo% Efter det kan du trykke videre 2 gange %col_norm%
 echo.
 pause
-echo Første gang, een gang mere
+echo F?rste gang, een gang mere
 pause
-
+echo %uninstalllog%
 rem fjern pgadmin
 call "%root%\AppData\Local\Programs\pgAdmin 4\v6\unins000.exe /VERYSILENT /NORESTART" >> %uninstalllog%
  
@@ -43,7 +44,7 @@ call %root%\Pycharm\bin\Uninstall.exe >> %uninstalllog%
 rem Fjern miniconda
 call %root%\miniconda3\Uninstall-Miniconda3.exe >> %uninstalllog%
 
-echo %col_impo% Vent med at gå videre til alle afinstallationerne er sket
+echo %col_impo% Vent med at gÃ¥ videre til alle afinstallationerne er sket
 pause
 Rem Uninstall miniconda windows.
 rmdir %root%\miniconda3 /s /q

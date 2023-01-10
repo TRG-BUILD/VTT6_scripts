@@ -2,7 +2,7 @@
 
 REM Config
 
-chcp 1252
+chcp 1252 >nul
 
 Rem an overview of all non-constant variables
 set root=C:\Users\%USERNAME%
@@ -17,15 +17,15 @@ set miniconda_url=https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-
 set miniconda_file=miniconda.exe
 set miniconda_logfile=miniconda.log
 
-set pycharm_url=https://download.jetbrains.com/python/pycharm-community-2021.1.3.exe
+set pycharm_url=https://download-cdn.jetbrains.com/python/pycharm-community-2022.3.1.exe
 set pycharm_file=pycharm.exe
 set pycharm_logfile=pycharm.log
 
 set postgis_url=https://download.osgeo.org/postgis/windows/pg14/archive/postgis-bundle-pg14-3.1.4x64.zip
 set postgis_file=postgis-bundle-pg14-3.1.4x64.zip
 set postgis_logfile=postgis.log
-		
-set pgadmin_url=https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.9/windows/pgadmin4-6.9-x64.exe
+
+set pgadmin_url=https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.18/windows/pgadmin4-6.18-x64.exe
 set pgadmin_file=pgadmin.exe
 set pgadmin_logfile=pgadmin.log
 

@@ -7,7 +7,7 @@ set stien=%stien: =LLLLL%
 
 
 echo %stien% | FIND /I "LLLLL">Nul && ( 
-echo Programmet kan ikke kÃ¸re, da installations mappen ligger i en mappe med mellemrum
+echo Programmet kan ikke køre, da installations mappen ligger i en mappe med mellemrum
 echo %stien%
 pause
 exit
@@ -26,13 +26,13 @@ Rem     Postgres, postgis and PgAdmin, and setting up the vttt database
 Rem Introduction to what is going to happen
 echo %col_norm% ------------------------- Installation af software til Vej- og trafikdatabehandlingskurset ---------------------------
 echo.
-echo %col_norm% Denne fil vil installere alle de fornï¿½dne programmer til kurset
+echo %col_norm% Denne fil vil installere alle de forn?dne programmer til kurset
 echo %col_norm% Samt give en kort beskrivelse af hvad der bliver installeret, og hvorfor
-echo %col_norm% Den forventede tid til installation samt opsï¿½tning er ca. en time
+echo %col_norm% Den forventede tid til installation samt ops?tning er ca. en time
 echo.
 
-echo %col_norm% Herunder skal du vï¿½lge om du vil have det hele installeret automatisk (anbefales) eller du vil sige ja tak lï¿½bende.
-echo %col_impo% Bemï¿½rk du under alle omstï¿½ndigheder skal sige ja ved miniconda installationen og ved opsï¿½tning af postgres
+echo %col_norm% Herunder skal du v?lge om du vil have det hele installeret automatisk (anbefales) eller du vil sige ja tak l?bende.
+echo %col_impo% Bem?rk du under alle omst?ndigheder skal sige ja ved miniconda installationen og ved ops?tning af postgres
 echo.
 
 REM Choose automatic (yes to everything) or guided process for installation
@@ -58,7 +58,7 @@ goto end
 :a_install
 echo.
 echo %col_norm%  Du har valgt automatisk installation
-echo %col_norm%  ï¿½nsker du et andet valg, sï¿½ start dette program forfra
+echo %col_norm%  ?nsker du et andet valg, s? start dette program forfra
 pause
 set default=--yes
 
@@ -66,7 +66,7 @@ goto install
 
 :g_install
 echo %col_norm% Du har valgt en guidet installation
-echo %col_norm% ï¿½nsker du et andet valg, sï¿½ start dette program forfra %col_impo% 
+echo %col_norm% ?nsker du et andet valg, s? start dette program forfra %col_impo% 
 set default=
 
 pause
@@ -79,18 +79,18 @@ cd %root%
 
 echo.
 echo %col_norm% ----------------------------------- Dette program har tre forskellige farver -----------------------------------------
-echo %col_norm% Denne farve er hjï¿½lpe tekst, som guider dig igennem installationen.
+echo %col_norm% Denne farve er hj?lpe tekst, som guider dig igennem installationen.
 echo %col_end% Denne farve er tekst skrevet af programmerne der installeres.
-echo %col_impo% Denne farve er nï¿½r der er noget vigtigt du skal vï¿½re opmï¿½rksom pï¿½.
+echo %col_impo% Denne farve er n?r der er noget vigtigt du skal v?re opm?rksom p?.
 echo.
-echo %col_norm% Fï¿½R DU Gï¿½R IGANG
-echo %col_norm% Hav mindst 10GB plads ledig. Der gives hjï¿½lp til afinstallation i slutningen af kurset
-echo %col_norm% Sï¿½rg for din antivirus er slï¿½et fra
-echo %col_impo% Hvis du fï¿½r 'Access Denied' er din antivirus ikke slï¿½et fra (og denne fil her kan blive slettet)
+echo %col_norm% F?R DU G?R IGANG
+echo %col_norm% Hav mindst 10GB plads ledig. Der gives hj?lp til afinstallation i slutningen af kurset
+echo %col_norm% S?rg for din antivirus er sl?et fra
+echo %col_impo% Hvis du f?r 'Access Denied' er din antivirus ikke sl?et fra (og denne fil her kan blive slettet)
 
 echo.
-echo %col_norm% Installationen af hvert program vil give lidt tekst til at forstï¿½ hvad der er installeret, samt hvorfor det er relevant
-echo %col_norm% Nï¿½r du trykker enter, vil download af programmerne gï¿½ igang og derefter selve installationen
+echo %col_norm% Installationen af hvert program vil give lidt tekst til at forst? hvad der er installeret, samt hvorfor det er relevant
+echo %col_norm% N?r du trykker enter, vil download af programmerne g? igang og derefter selve installationen
 echo.
 
 
@@ -99,12 +99,12 @@ pause
 Rem Make sure it is run in admin mode (to reduce errors)
 call net session >nul 2>&1
 if %errorlevel% == 0 (
-    echo %col_norm% Installation af python pï¿½begynder nu.
+    echo %col_norm% Installation af python p?begynder nu.
     ) else (
     cls
     echo %col_impo% ----------------------------------------------------------------------------------------------------------------------
     echo %col_impo%                  Terminalen er ikke startet i administrator tilstand, hvilket kan give problemer
-    echo %col_impo%                                Hï¿½jre klik pï¿½ filen og tryk "kï¿½r som administrator
+    echo %col_impo%                                H?jre klik p? filen og tryk "k?r som administrator
     echo %col_impo% ----------------------------------------------------------------------------------------------------------------------
     pause
     exit
@@ -143,19 +143,19 @@ call bitsadmin /complete postgisInstall > nul
 )
 
 echo.                                          
-echo %col_norm% ---------------------------   Miniconda installeres og det virtuelle miljï¿½ opsï¿½ttes   ------------------------------
+echo %col_norm% ---------------------------   Miniconda installeres og det virtuelle milj? ops?ttes   ------------------------------
 echo %col_norm% miniconda er downloadet og ved at blive installeret. Vent venligst
 mkdir %root%\miniconda3
 call %miniconda_file% /S /D=%root%\miniconda3  >> %logfile%
 echo.
 echo %col_norm% Miniconda installeret
-echo %col_norm% Miniconda er er et pakkehï¿½ndteringsprogram som holder styr pï¿½ dit python miljï¿½
+echo %col_norm% Miniconda er er et pakkeh?ndteringsprogram som holder styr p? dit python milj?
 echo.
 
 if not '%default%'=='--yes' (
 echo.
-echo %col_norm% Nï¿½r du trykker enter vil der blive oprettet et virtuelt miljï¿½ for python
-echo %col_impo% Tryk en tast for at bekrï¿½fte oprettelsen af det virtuelle miljï¿½
+echo %col_norm% N?r du trykker enter vil der blive oprettet et virtuelt milj? for python
+echo %col_impo% Tryk en tast for at bekr?fte oprettelsen af det virtuelle milj?
 pause
 )
 
@@ -163,6 +163,7 @@ Rem Activate AnacondaPrompt (only on windows)
 call %root%\miniconda3\Scripts\activate.bat %root%\miniconda3  >> %logfile%
 
 Rem Create Conda environment
+call conda install -c conda-forge -y git >> %logfile%
 call conda create %default%  -n build >> %logfile%
 call conda activate build >> %logfile%
 echo conda update -n base %default% -c defaults conda >> %logfile%
@@ -171,14 +172,14 @@ call conda config --add channels conda-forge  >> %logfile%
 
 
 echo.
-echo %col_norm% Virtuelt miljï¿½ build er oprettet
-echo %col_norm% Et virtuelt miljï¿½ er basalt set en python installation, som holdes adskilt fra andre python installationer
+echo %col_norm% Virtuelt milj? build er oprettet
+echo %col_norm% Et virtuelt milj? er basalt set en python installation, som holdes adskilt fra andre python installationer
 echo %col_norm% Det vil sige, at de pakker vi skal bruge her i kurset til at udvide det basale python, ikke vil blive blandet sammen med andre installationer af python
-echo %col_norm% I lï¿½bet af kurset har i kun behov for det ene virtuelle miljï¿½ (build) 
-echo %col_norm% Hernï¿½st vil der blive installeret pakker i build miljï¿½t
+echo %col_norm% I l?bet af kurset har i kun behov for det ene virtuelle milj? (build) 
+echo %col_norm% Hern?st vil der blive installeret pakker i build milj?t
 
 if not '%default%'=='--yes' (
-echo %col_impo% Tryk 'y' for at bekrï¿½fte installationen af hver pakke. Der er 8 i alt
+echo %col_impo% Tryk 'y' for at bekr?fte installationen af hver pakke. Der er 8 i alt
 pause
 )
 
@@ -198,35 +199,35 @@ call yes | pip install requests
 
 echo.
 echo %col_norm% Alle python pakkerne er installeret korrekt
-echo %col_norm% En pakke (eller library pï¿½ engelsk) er kode som andre har skrevet, og gjort tilgï¿½ngeligt for andre at bruge.
+echo %col_norm% En pakke (eller library p? engelsk) er kode som andre har skrevet, og gjort tilg?ngeligt for andre at bruge.
 echo.
 echo %col_norm% I dette kursus er der installeret:
 echo %col_norm% matplotlib:
 echo %col_norm% Kan bruges til at lave scatterplot, histogrammer og generelt grafer af data
 echo %col_norm% pandas:
-echo %col_norm% Kan indlï¿½se og manipulere data til og fra mange forskellige filformater
+echo %col_norm% Kan indl?se og manipulere data til og fra mange forskellige filformater
 echo %col_norm% geopandas:
-echo %col_norm% Udvider pandas til at kunne hï¿½ndtere gis vectordata
+echo %col_norm% Udvider pandas til at kunne h?ndtere gis vectordata
 echo %col_norm% xlrd:
-echo %col_norm% Udvider pandas til at kunne hï¿½ndtere excel
+echo %col_norm% Udvider pandas til at kunne h?ndtere excel
 echo %col_norm% openpyxl:
-echo %col_norm% En for at vï¿½re helt sikker pï¿½ at integrationen med excel virker
+echo %col_norm% En for at v?re helt sikker p? at integrationen med excel virker
 echo %col_norm% psycopg2:
-echo %col_norm% Gï¿½r det muligt at skrive SQL kommandï¿½r til den database i fï¿½r installeret"
-echo %col_norm% SQL er et sprog i vil lï¿½re mere om i de kommende kursusgange"
+echo %col_norm% G?r det muligt at skrive SQL kommand?r til den database i f?r installeret"
+echo %col_norm% SQL er et sprog i vil l?re mere om i de kommende kursusgange"
 echo %col_norm% numpy:"
-echo %col_norm%  "En pakke der gï¿½r de andre pakker mange gange hurtigere"
+echo %col_norm%  "En pakke der g?r de andre pakker mange gange hurtigere"
 echo %col_norm% Denne installation er ligeledes en "sikkerhedspakke" for at sikre den er med
 echo %col_norm% requests:
-echo %col_norm% En pakke der gï¿½r det muligt at sende og modtage beskeder fra internettet
+echo %col_norm% En pakke der g?r det muligt at sende og modtage beskeder fra internettet
 echo %col_norm% Den kan bruges til at hente data fra datastyrelsen, vejman samt mere til brug i et program
 
 if not '%default%'=='--yes' (
 pause
 )
 
-echo %col_norm% Python er nu installeret med de korrekte pakker i build miljï¿½t hvor man kan skrive programmerne i, og kï¿½re det fra
-echo %col_norm% Nï¿½r du trykker enter, vil PyCharm IDE'en blive installeret
+echo %col_norm% Python er nu installeret med de korrekte pakker i build milj?t hvor man kan skrive programmerne i, og k?re det fra
+echo %col_norm% N?r du trykker enter, vil PyCharm IDE'en blive installeret
 
 if not '%default%'=='--yes' (
 pause
@@ -249,11 +250,11 @@ call %pycharm_file% /S /CONFIG=%root%\silent.config /D=%root%\Pycharm  >> %logfi
 echo %col_norm% Pycharm er installeret.
 
 echo.
-echo %col_norm% ---------------------------- PgAdmin skal nu sï¿½ttes op til at bruge postgres databasen -------------------------------
-echo %col_norm% Pycharm er som skrevet en IDE, hvor man kan skrive og kï¿½re python
+echo %col_norm% ---------------------------- PgAdmin skal nu s?ttes op til at bruge postgres databasen -------------------------------
+echo %col_norm% Pycharm er som skrevet en IDE, hvor man kan skrive og k?re python
 echo %col_norm% Et Integrated Development Environment (IDE) er dybest set en tekst editor med ekstra funktioner
 echo %col_norm% Disse ekstra funktioner vil blive forklaret i en seperat video
-echo %col_norm% PyCharm holder styr pï¿½ filerne indenfor et givet projekt
+echo %col_norm% PyCharm holder styr p? filerne indenfor et givet projekt
 echo.
 
 
@@ -271,8 +272,8 @@ cd %root%\PycharmProjects
 
 echo.
 echo %col_norm% I dette kursus er projektet VTT6 oprettet med opgaver, samt mulighed for at i selv kan lave python programmer
-echo %col_norm% Nï¿½r du trykker enter vil VTT6 projektet blive hentet ned
-echo %col_impo% For at hente VTT6 projektet, bruges versionstyringsprogrammet git. HUSK at skrive 'y' nï¿½r den beder om installationen
+echo %col_norm% N?r du trykker enter vil VTT6 projektet blive hentet ned
+echo %col_impo% For at hente VTT6 projektet, bruges versionstyringsprogrammet git. HUSK at skrive 'y' n?r den beder om installationen
 
 
 echo conda install -c conda-forge -y git >> %logfile%
@@ -284,17 +285,17 @@ cd %root%
 
 
 echo.
-echo %col_norm% VTT6 er nu hentet ned pï¿½ computeren
-echo %col_norm% Dette projekt vil vï¿½re det primï¿½re sted for at lave opgaver og skrive filer
+echo %col_norm% VTT6 er nu hentet ned p? computeren
+echo %col_norm% Dette projekt vil v?re det prim?re sted for at lave opgaver og skrive filer
 echo %col_norm% Sammenkoblingen af alle delene vil ske i slutningen af denne fil gennemgang
-echo %col_norm% Som det sidste fï¿½r sammenkoblingen, vil der blive downloadet postgresql og pgadmin til at hï¿½ndtere databaser
+echo %col_norm% Som det sidste f?r sammenkoblingen, vil der blive downloadet postgresql og pgadmin til at h?ndtere databaser
 echo.
 
 
 Rem Install Postgres + PostGis
 echo.
 echo %col_norm% Postgresql og PgAdmin er ved at blive installeret. Vent venligst
-echo %col_norm% Vï¿½lg Install For Me. Derefter vil filer blive udpakket og flyttet
+echo %col_norm% V?lg Install For Me. Derefter vil filer blive udpakket og flyttet
 
 echo %pgadmin_file% /VERYSILENT /NORESTART >> %logfile%
 call %pgadmin_file% /VERYSILENT /NORESTART /DIR=%root%\pgAdmin >> %logfile%
@@ -309,7 +310,7 @@ echo %col_norm% PgAdmin og postgresqlinstalleret. Overskydende filer slettes
 
 
 echo.
-echo %col_norm% Der opsï¿½ttes nu automatisk den database, som skal bruges i kurset
+echo %col_norm% Der ops?ttes nu automatisk den database, som skal bruges i kurset
 mkdir %root%\pgdatabase
 echo initdb --encoding="UTF8" --pgdata=%root%\pgdatabase --auth=trust >> %logfile%
 call initdb --encoding="UTF8" --pgdata=%root%\pgdatabase --auth=trust >> %logfile%
@@ -318,21 +319,21 @@ call pg_ctl -D %USERPROFILE%\pgdatabase -l logfile start
 
 
 echo.
-echo %col_impo% Vï¿½lg 'changeme' som password til den nye rolle (brugeren postgres)
-echo %col_impo% Indtastningen er USYNLIG, og skal gï¿½res to gange i streg
+echo %col_impo% V?lg 'changeme' som password til den nye rolle (brugeren postgres)
+echo %col_impo% Indtastningen er USYNLIG, og skal g?res to gange i streg
 echo.
 echo "createuser -P -s -e postgres"
 call createuser -P -s -e postgres
 echo createdb vttt "--owner=postgres --host=localhost --port=5432 --username=postgres --no-password" >> %logfile%
 call createdb vttt "--owner=postgres --host=localhost --port=5432 --username=postgres --no-password"
-
+|
 
 echo.
-echo %col_norm% Postgresql er et program som hï¿½ndtere databaser, og som du kan styre ved brug af programmeringssproget SQL
-echo %col_norm% Pï¿½ din computer er der nu oprettet en database der hedder 'vttt'
-echo %col_norm% Denne database er valgt i kurset til at kunne tilgï¿½s med brugernavnet 'postgres' og passwordet 'changeme'
-echo %col_norm% Den kï¿½re pï¿½ din computer, hvilket er 'hostes pï¿½ localhost' i tekniske termer
-echo %col_norm% Den lytter desuden pï¿½ port 5432, hvilket er det 'sted' pï¿½ din computer andre programmer kan kontakte databasen
+echo %col_norm% Postgresql er et program som h?ndtere databaser, og som du kan styre ved brug af programmeringssproget SQL
+echo %col_norm% P? din computer er der nu oprettet en database der hedder 'vttt'
+echo %col_norm% Denne database er valgt i kurset til at kunne tilg?s med brugernavnet 'postgres' og passwordet 'changeme'
+echo %col_norm% Den k?re p? din computer, hvilket er 'hostes p? localhost' i tekniske termer
+echo %col_norm% Den lytter desuden p? port 5432, hvilket er det 'sted' p? din computer andre programmer kan kontakte databasen
 echo %col_norm% Ligeledes er PgAdmin installeret, som kan bruges til at se og bruge databasen
 
 
@@ -341,8 +342,8 @@ pause
 )
 
 echo.
-echo %col_impo% Der mangler lige den sidste opsï¿½tning der skal laves manuelt
-echo %col_norm% Nï¿½r du trykker enter, vil instruktionerne for de sidste opsï¿½tninger blive skrevet
+echo %col_impo% Der mangler lige den sidste ops?tning der skal laves manuelt
+echo %col_norm% N?r du trykker enter, vil instruktionerne for de sidste ops?tninger blive skrevet
 echo %col_norm% Instruktionerne er delt op i 1 step ad gangen
 
 if not '%default%'=='--yes' (
@@ -350,15 +351,15 @@ pause
 )
 
 echo.
-echo %col_norm% --------------------------- PgAdmin skal nu sï¿½ttes op til at bruge postgres databasen ------------------------------
+echo %col_norm% --------------------------- PgAdmin skal nu s?ttes op til at bruge postgres databasen ------------------------------
 
 echo sqlite3 %USERPROFILE%\AppData\Roaming\pgadmin\pgadmin4.db "INSERT INTO server ("user_id", "servergroup_id", ssl_mode, "name", "host", "port", "maintenance_db", "username") VALUES ( 1, 1, 'prefer','vttt', 'localhost', '5432', 'postgres', 'postgres')"  >> %logfile%
 sqlite3 %USERPROFILE%\AppData\Roaming\pgadmin\pgadmin4.db "INSERT INTO server ("user_id", "servergroup_id", ssl_mode, "name", "host", "port", "maintenance_db", "username") VALUES ( 1, 1, 'prefer','vttt', 'localhost', '5432', 'postgres', 'postgres')"
 echo psql -U postgres -d vttt -c "CREATE EXTENSION postgis;"
 psql -U postgres -d vttt -c "CREATE EXTENSION postgis;"
 
-echo %col_norm% Til det skal du fï¿½lge de her 5 steps:
-echo %col_norm% 1. ï¿½ben PgAdmin (sï¿½g efter PgAdmin)
+echo %col_norm% Til det skal du f?lge de her 5 steps:
+echo %col_norm% 1. ?ben PgAdmin (s?g efter PgAdmin)
 echo %col_norm%    Accepter betingelserne
 echo %col_impo%    Til 'set master password' indtast 'changeme'
 
@@ -368,7 +369,7 @@ pause
 )
 
 echo.
-echo %col_norm% 2. Hï¿½jre klik pï¿½ Servers (i ï¿½vre venstre hjï¿½rne) - Create - Server
+echo %col_norm% 2. H?jre klik p? Servers (i ?vre venstre hj?rne) - Create - Server
 
 
 if not '%default%'=='--yes' (
@@ -377,7 +378,7 @@ pause
 
 
 echo.
-echo %col_norm% 3. Angiv Name 'vttt', og tryk pï¿½ connection
+echo %col_norm% 3. Angiv Name 'vttt', og tryk p? connection
 echo %col_norm%    Angiv Host name/address 'localhost', og tryk "Save"
 
 
@@ -386,12 +387,12 @@ pause
 )
 
 echo.
-echo %col_norm% 4. For at udfï¿½re SQL kommandoer til databasen, skal du fï¿½rst vï¿½lge databasen 
-echo %col_norm%    Helt ude til venstre, tryk pï¿½ vttt - Databases - vttt 
-echo %col_norm%    Derefter se i den ï¿½vre blï¿½ bjï¿½lke og tryk pï¿½ Tools - Query Tool
+echo %col_norm% 4. For at udf?re SQL kommandoer til databasen, skal du f?rst v?lge databasen 
+echo %col_norm%    Helt ude til venstre, tryk p? vttt - Databases - vttt 
+echo %col_norm%    Derefter se i den ?vre bl? bj?lke og tryk p? Tools - Query Tool
 echo %col_norm%    Copy/paste denne kommando, for at aktivere postgis i databasen:
 echo %col_impo%    create extension postgis;
-echo %col_norm%    Tryk derefter pï¿½ F5 eller Play knappen ï¿½verst til hï¿½jre, for at sende SQL kommandoen til databasen 
+echo %col_norm%    Tryk derefter p? F5 eller Play knappen ?verst til h?jre, for at sende SQL kommandoen til databasen 
 
 
 if not '%default%'=='--yes' (
@@ -408,10 +409,10 @@ pause
 
 
 echo.
-echo %col_norm% ---------------------- PyCharm skal indstilles til at bruge conda's virtuelle miljï¿½ 'build' ------------------------
-echo %col_norm% Til det skal du fï¿½lge de her 7 steps
+echo %col_norm% ---------------------- PyCharm skal indstilles til at bruge conda's virtuelle milj? 'build' ------------------------
+echo %col_norm% Til det skal du f?lge de her 7 steps
 echo.
-echo %col_norm% 1. ï¿½ben PyCharm Community Edition (sï¿½g efter Pycharm)
+echo %col_norm% 1. ?ben PyCharm Community Edition (s?g efter Pycharm)
 echo %col_norm%    Accepter betingelserne."
 
 
@@ -420,10 +421,10 @@ pause
 )
 
 echo.
-echo %col_norm% 2. I popup vinduet, tryk pï¿½ "Open" og find projektet VTT6
+echo %col_norm% 2. I popup vinduet, tryk p? "Open" og find projektet VTT6
 echo %col_norm%    Projektet ligger i %root%\PycharmProjects
-echo %col_norm%    I vil muligvis fï¿½ en besked i nedre hï¿½jre hjï¿½rne om at der mangler en github mappe
-echo %col_norm%    Den mappe er fjernet, da i ikke har behov for det, sï¿½ i kan se bort fra fejlen
+echo %col_norm%    I vil muligvis f? en besked i nedre h?jre hj?rne om at der mangler en github mappe
+echo %col_norm%    Den mappe er fjernet, da i ikke har behov for det, s? i kan se bort fra fejlen
 
 
 if not '%default%'=='--yes' (
@@ -431,9 +432,9 @@ pause
 )
 
 echo.
-echo %col_norm% 3. Nï¿½r projektet er ï¿½bent, se da nederst i hï¿½jre hjï¿½rne under 'Event Log'
-echo %col_norm%    Tryk pï¿½ 'No Interpreter' og dernï¿½st tryk pï¿½ 'Add Interpreter'
-echo %col_norm%    Der kan godt stï¿½ 'Python X.X' (hvor X er tal) istedet. Tryk stadig og vï¿½lg 'Add Interpreter'
+echo %col_norm% 3. N?r projektet er ?bent, se da nederst i h?jre hj?rne under 'Event Log'
+echo %col_norm%    Tryk p? 'No Interpreter' og dern?st tryk p? 'Add Interpreter'
+echo %col_norm%    Der kan godt st? 'Python X.X' (hvor X er tal) istedet. Tryk stadig og v?lg 'Add Interpreter'
 
 
 if not '%default%'=='--yes' (
@@ -441,11 +442,11 @@ pause
 )
 
 echo.
-echo %col_norm% 4. I popup vinduet skal du trykke pï¿½ 'conda environment' i venstre side
-echo %col_norm%    Dernï¿½st trykker du pï¿½ 'existing environments' og find sï¿½ en "Interpreter:" som hedder
+echo %col_norm% 4. I popup vinduet skal du trykke p? 'conda environment' i venstre side
+echo %col_norm%    Dern?st trykker du p? 'existing environments' og find s? en "Interpreter:" som hedder
 echo %col_norm%    %root%\miniconda3\envs\build\python.exe 
-echo %col_impo%    HUSK at tryk pï¿½ 'make available to all projects'
-echo %col_norm%    Tryk sï¿½ OK, og der burde nu stï¿½ "Python 3.9 (build)" i nedre hï¿½jre hjï¿½rne
+echo %col_impo%    HUSK at tryk p? 'make available to all projects'
+echo %col_norm%    Tryk s? OK, og der burde nu st? "Python 3.9 (build)" i nedre h?jre hj?rne
 
 
 if not '%default%'=='--yes' (
@@ -454,8 +455,8 @@ pause
 
 echo.
 echo %col_norm% 5. Python interpreteren bliver nu sat op i PyCharm. Det kan tage noget tid.
-echo %col_norm%    Nï¿½r den hvide streg til venstre for Python 3.9 (build) er kï¿½rt helt igennem,
-echo %col_norm%    kan du fortsï¿½tte med nï¿½ste instruktion
+echo %col_norm%    N?r den hvide streg til venstre for Python 3.9 (build) er k?rt helt igennem,
+echo %col_norm%    kan du forts?tte med n?ste instruktion
 
 
 if not '%default%'=='--yes' (
@@ -463,8 +464,8 @@ pause
 )
 
 echo.
-echo %col_norm% 6. I ï¿½vre venstre hjï¿½rne, hï¿½jre-klik pï¿½ 0test_setup.py
-echo %col_norm%    Dernï¿½st, tryk pï¿½ "Run" for at kï¿½re filen
+echo %col_norm% 6. I ?vre venstre hj?rne, h?jre-klik p? 0test_setup.py
+echo %col_norm%    Dern?st, tryk p? "Run" for at k?re filen
 
 
 if not '%default%'=='--yes' (
@@ -473,7 +474,7 @@ pause
 
 echo.
 echo %col_norm% 7. Hvis programmet siger 'Alt korrekt installeret' i terminalen i bunden er alt ok
-echo %col_norm%    Hvis programmet ikke siger 'Alt korrekt installeret', sï¿½ kontakt en underviser.
+echo %col_norm%    Hvis programmet ikke siger 'Alt korrekt installeret', s? kontakt en underviser.
 
 
 if not '%default%'=='--yes' (
@@ -482,8 +483,8 @@ pause
 
 
 echo.
-echo %col_norm% Alle programmer til dette kursus burde nu vï¿½re korrekt installeret og opsat
-echo %col_norm% Ved nï¿½ste tryk lukker denne terminal, ellers tryk pï¿½ X til hï¿½jre
+echo %col_norm% Alle programmer til dette kursus burde nu v?re korrekt installeret og opsat
+echo %col_norm% Ved n?ste tryk lukker denne terminal, ellers tryk p? X til h?jre
 
 ::rmdir %root%\PycharmProjects\VTT6\.git /s /q
 rmdir %root%\unziped /s /q
@@ -509,4 +510,4 @@ call python %~dp0test_setup.py
 echo.
 echo "Installationen slutter"
 pause
-echo %col_impo% Lukker vinduet ikke sï¿½ brug krydset
+echo %col_impo% Lukker vinduet ikke s? brug krydset
