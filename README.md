@@ -72,3 +72,4 @@ PycharmProjects/VTT6/test_setup.py
 | Database dosent exist                       | Both    | Installation failed to create a database                  | Open a terminal with Conda Environment Build activated and run: <br> $ createdb vttt --owner=postgres --host=localhost --port=5432 --username=postgres --no-password |
 | Cant activate build environment in terminal | Windows |            | Find Anaconda Promt <br> $ conda activate build                                                                                                                      |
 | Cant activate build environment in terminal | Mac    |            | Open Terminal <br> $ conda activate build                                                                                                                            |
+| No module named                             | Both.  | Python packages have not been properly installed | $ pip install packagename |
