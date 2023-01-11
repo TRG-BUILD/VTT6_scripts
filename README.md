@@ -52,17 +52,7 @@ zsh mac_uninstall.sh
 
 # Installation Errors
 
-## Windows:
-- No colored text in Commandpromt:
-  - Installation files is placed in a illegal directory
-
-
-## Mac 
-
-
-# Other Errors
-
-Run python script in:
+Test installation by runnign python script in:
 PycharmProjects/VTT6/test_setup.py
 
 | Problem                                     | OS      | Explanation                                               | Solution                                                                                                                                                             |
