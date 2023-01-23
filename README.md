@@ -30,14 +30,14 @@ Goto you directory, where you downloaded the installation files.
 
 If it is in your download folder then go to directory by entering:
 ```
-cd ~/Downloads/unzip
-VTT6_scripts-1.23.2.zip 
-cd VTT6_scripts-1.23.2
+$ cd ~/Downloads/unzip
+$ unzip VTT6_scripts-latest.zip
+$ cd VTT6_scripts-latest
 ```
 
 Install by entering:
 ```
-zsh mac_install.sh
+$ zsh mac_install.sh
 ```
 
 The files should be self explanatory when run.
