@@ -4,7 +4,7 @@ Scripts for the _Vej- og trafikdatabehandling (VTT6)_ course, installing all the
 ## How to run
 Depending on your operative system, the files should be run differently.
 
-On both windows and mac, it is adviced to have antivirus software turned off, 
+On both windows and mac, it's advised to have antivirus software turned off, 
 since most antivirus programs won't accept non-verified installation programs,
 and terminate the script.
 
@@ -53,6 +53,9 @@ zsh mac_uninstall.sh
 # Errors
 
 Run python script in:
+# Installation Errors
+
+Test installation by running python script in:
 PycharmProjects/VTT6/test_setup.py
 
 | Problem                                     | OS      | Explanation                                               | Solution                                                                                                                                                             |
@@ -63,4 +66,4 @@ PycharmProjects/VTT6/test_setup.py
 | Cant activate build environment in terminal | Windows |                                                           | Find Anaconda Promt <br> $ conda activate build                                                                                                                      |
 | Cant activate build environment in terminal | Mac     |                                                           | Open Terminal <br> $ conda activate build                                                                                                                            |
 | Databasen er ikke startet                   | Win     | Postgres server isn't started	                            | Dobbelt klik på start_postgres.cmd                                                                                                                                   |
-| Databasen er ikke startet                   | Mac     | 	 Postgres server isn't started	                          | Open Terminal and activate build <br> $ cd ~/Download/VTT6_scripts-1.23.1/ <br> $ zsh start_postgres.sh                                                              |
+| No module named                             | Both.   | Python packages have not been properly installed          | $ pip install packagename                                                                                                                                            |
