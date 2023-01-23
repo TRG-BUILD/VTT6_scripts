@@ -31,8 +31,8 @@ Goto you directory, where you downloaded the installation files.
 If it is in your download folder then go to directory by entering:
 ```
 cd ~/Downloads/unzip
-VTT6_scripts-1.2.zip 
-cd VTT6_scripts-1.2
+VTT6_scripts-1.23.2.zip 
+cd VTT6_scripts-1.23.2
 ```
 
 Install by entering:
@@ -50,17 +50,7 @@ If you wan to uninstall on Mac OS X then run
 zsh mac_uninstall.sh
 ```
 
-# Installation Errors
-
-## Windows:
-- No colored text in Commandpromt:
-  - Installation files is placed in a illegal directory
-
-
-## Mac 
-
-
-# Other Errors
+# Errors
 
 Run python script in:
 PycharmProjects/VTT6/test_setup.py
@@ -70,5 +60,7 @@ PycharmProjects/VTT6/test_setup.py
 | No colored text in Commonadpromt            | Windows | Installations i placed in a illegal directory             | Move to a directory without spaces in name                                                                                                                           |
 | Brugeen findes ikke (postgres)              | Both    | Installation failed to create a user in postgres database | Open a terminal with Conda Environment Build activated and run: <br> $ createuser -P -s -e postgres                                                                  |
 | Database dosent exist                       | Both    | Installation failed to create a database                  | Open a terminal with Conda Environment Build activated and run: <br> $ createdb vttt --owner=postgres --host=localhost --port=5432 --username=postgres --no-password |
-| Cant activate build environment in terminal | Windows |            | Find Anaconda Promt <br> $ conda activate build                                                                                                                      |
-| Cant activate build environment in terminal | Mac    |            | Open Terminal <br> $ conda activate build                                                                                                                            |
+| Cant activate build environment in terminal | Windows |                                                           | Find Anaconda Promt <br> $ conda activate build                                                                                                                      |
+| Cant activate build environment in terminal | Mac     |                                                           | Open Terminal <br> $ conda activate build                                                                                                                            |
+| Databasen er ikke startet                   | Win     | Postgres server isn't started	                            | Dobbelt klik på start_postgres.cmd                                                                                                                                   |
+| Databasen er ikke startet                   | Mac     | 	 Postgres server isn't started	                          | Open Terminal and activate build <br> $ cd ~/Download/VTT6_scripts-1.23.1/ <br> $ zsh start_postgres.sh                                                              |

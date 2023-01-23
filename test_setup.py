@@ -51,6 +51,6 @@ except Exception as e:
                 pg_ctl -D %USERPROFILE%\pgdatabase -l logfile start""",
         """Start din terminal
                 conda activate build
-                pg_ctl -D ~\pgdatabase -l logfile start""")
+                pg_ctl -D ~/pgdatabase -l logfile start""")
 
     print("Virker det ikke? Kontakt underviser og vis den ovenstående fejl")
