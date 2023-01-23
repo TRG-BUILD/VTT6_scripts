@@ -50,9 +50,7 @@ If you wan to uninstall on Mac OS X then run
 zsh mac_uninstall.sh
 ```
 
-# Errors
 
-Run python script in:
 # Installation Errors
 
 Test installation by running python script in:
