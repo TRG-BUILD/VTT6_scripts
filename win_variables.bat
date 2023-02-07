@@ -21,8 +21,8 @@ set pycharm_url=https://download-cdn.jetbrains.com/python/pycharm-community-2022
 set pycharm_file=pycharm.exe
 set pycharm_logfile=pycharm.log
 
-set postgis_url=https://download.osgeo.org/postgis/windows/pg14/archive/postgis-bundle-pg14-3.1.4x64.zip
-set postgis_file=postgis-bundle-pg14-3.1.4x64.zip
+set postgis_url=https://download.osgeo.org/postgis/windows/pg15/postgis-bundle-pg15-3.3.2x64.zip
+set postgis_file=postgis-bundle-pg15-3.3.2x64.zip
 set postgis_logfile=postgis.log
 
 set pgadmin_url=https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v6.18/windows/pgadmin4-6.18-x64.exe
