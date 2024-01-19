@@ -135,12 +135,12 @@ call bitsadmin /transfer  pgadminInstall %pgadmin_url% %root%\%pgadmin_file% >> 
 call bitsadmin /complete  pgadminInstall  > nul
 )
 
-if not exist %root%\%postgis_file% (
-echo %col_norm% Downloading postgis... please wait
-call bitsadmin /create postgisInstall > nul
-call bitsadmin /transfer postgisInstall %postgis_url% %root%\%postgis_file% >> %logfile%
-call bitsadmin /complete postgisInstall > nul
-)
+REM if not exist %root%\%postgis_file% (
+REM echo %col_norm% Downloading postgis... please wait
+REM call bitsadmin /create postgisInstall > nul
+REM call bitsadmin /transfer postgisInstall %postgis_url% %root%\%postgis_file% >> %logfile%
+REM call bitsadmin /complete postgisInstall > nul
+REM )
 
 echo.                                          
 echo %col_norm% ---------------------------   Miniconda installeres og det virtuelle milj? ops?ttes   ------------------------------
