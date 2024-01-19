@@ -60,8 +60,8 @@ fi
 source "$shellrc"
 source /usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh
 conda update -n base -c defaults conda
-conda create -n build
-conda activate build
+conda create -n "${environment_name}"
+conda activate "${environment_name}"
 conda config --add channels conda-forge
 
 #p_s
@@ -164,30 +164,30 @@ read something
 
 # Install Postgres + PostGis + PgAdmin
 #conda install -c conda-forge postgresql=14.1
-conda install -c conda-forge postgis
+#conda install -c conda-forge postgis
 brew install --cask pgadmin4
 
-p_n "Der opsættes nu automatisk den database, som skal bruges i kurset "
+#p_n "Der opsættes nu automatisk den database, som skal bruges i kurset "
 
 # Create a database cluster with superuser = %USERNAME% (no password)
-sudo mkdir ~/pgdatabase
-sudo chmod -R 755 ~/pgdatabase
-sudo chown -R $USER ~/pgdatabase
-initdb --encoding="UTF8" --pgdata=$root/pgdatabase --auth=trust
-pg_ctl -D $root/pgdatabase -l logfile start
-p_i "Vælg changeme som password til den nye rolle som er brugeren postgres "
-p_i "Indtastningen er USYNLIG, og skal gøres to gange i streg "
-createuser -P -s -e postgres
-createdb vttt --owner=postgres --host=localhost --port=5432 --username=postgres --no-password
+#sudo mkdir ~/pgdatabase
+#sudo chmod -R 755 ~/pgdatabase
+#sudo chown -R $USER ~/pgdatabase
+#initdb --encoding="UTF8" --pgdata=$root/pgdatabase --auth=trust
+#pg_ctl -D $root/pgdatabase -l logfile start
+#p_i "Vælg changeme som password til den nye rolle som er brugeren postgres "
+#p_i "Indtastningen er USYNLIG, og skal gøres to gange i streg "
+#createuser -P -s -e postgres
+#createdb vttt --owner=postgres --host=localhost --port=5432 --username=postgres --no-password
 
-p_n "Postgresql er et program som håndtere databaser, og som du kan styre ved brug af programmeringssproget SQL "
-p_n "På din computer er der nu oprettet en database der hedder vttt "
-p_n "Denne database er valgt i kurset til at kunne tilgæs med brugernavnet postgres og passwordet changeme "
-p_n "Den køre på din computer, hvilket hedder hostes på localhost i tekniske termer "
-p_n "Den lytter desuden på port 5432, hvilket er det sted på din computer andre programmer kan kontakte databasen "
-p_n "Ligeledes er PgAdmin installeret, som kan bruges til at se og bruge databasen "
-p_n "Tryk enter for at fortsætte "
-read something
+#p_n "Postgresql er et program som håndtere databaser, og som du kan styre ved brug af programmeringssproget SQL "
+#p_n "På din computer er der nu oprettet en database der hedder vttt "
+#p_n "Denne database er valgt i kurset til at kunne tilgæs med brugernavnet postgres og passwordet changeme "
+#p_n "Den køre på din computer, hvilket hedder hostes på localhost i tekniske termer "
+#p_n "Den lytter desuden på port 5432, hvilket er det sted på din computer andre programmer kan kontakte databasen "
+#p_n "Ligeledes er PgAdmin installeret, som kan bruges til at se og bruge databasen "
+#p_n "Tryk enter for at fortsætte "
+#read something
 
 clear
 

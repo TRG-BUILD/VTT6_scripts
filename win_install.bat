@@ -7,7 +7,7 @@ set stien=%stien: =LLLLL%
 
 
 echo %stien% | FIND /I "LLLLL">Nul && ( 
-echo Programmet kan ikke køre, da installations mappen ligger i en mappe med mellemrum
+echo Programmet kan ikke kï¿½re, da installations mappen ligger i en mappe med mellemrum
 echo %stien%
 pause
 exit
@@ -164,8 +164,8 @@ call %root%\miniconda3\Scripts\activate.bat %root%\miniconda3  >> %logfile%
 
 Rem Create Conda environment
 call conda install -c conda-forge -y git >> %logfile%
-call conda create %default%  -n build >> %logfile%
-call conda activate build >> %logfile%
+call conda create %default%  -n %environment_name% >> %logfile%
+call conda activate %environment_name% >> %logfile%
 echo conda update -n base %default% -c defaults conda >> %logfile%
 call conda update -n base %default% -c defaults conda >> %logfile%
 call conda config --add channels conda-forge  >> %logfile%
@@ -297,15 +297,15 @@ echo.
 echo %col_norm% Postgresql og PgAdmin er ved at blive installeret. Vent venligst
 echo %col_norm% V?lg Install For Me. Derefter vil filer blive udpakket og flyttet
 
-echo %pgadmin_file% /VERYSILENT /NORESTART >> %logfile%
-call %pgadmin_file% /VERYSILENT /NORESTART /DIR=%root%\pgAdmin >> %logfile%
-echo powershell.exe -NoP -NonI -Command "Expand-Archive '.\%postgis_file%' '.\unziped\'" >> %logfile%
-call powershell.exe -NoP -NonI -Command "Expand-Archive '.\%postgis_file%' '.\unziped\'" >> %logfile%
-cd unziped
-echo Robocopy %postgis_file:~0,-4% %USERPROFILE%\miniconda3\envs\build\Library /E /Z /MOVE >> %logfile%
-call Robocopy %postgis_file:~0,-4% %USERPROFILE%\miniconda3\envs\build\Library /E /Z /MOVE >> %logfile%
+REM echo %pgadmin_file% /VERYSILENT /NORESTART >> %logfile%
+REM call %pgadmin_file% /VERYSILENT /NORESTART /DIR=%root%\pgAdmin >> %logfile%
+REM echo powershell.exe -NoP -NonI -Command "Expand-Archive '.\%postgis_file%' '.\unziped\'" >> %logfile%
+REM call powershell.exe -NoP -NonI -Command "Expand-Archive '.\%postgis_file%' '.\unziped\'" >> %logfile%
+REM cd unziped
+REM echo Robocopy %postgis_file:~0,-4% %USERPROFILE%\miniconda3\envs\build\Library /E /Z /MOVE >> %logfile%
+REM call Robocopy %postgis_file:~0,-4% %USERPROFILE%\miniconda3\envs\build\Library /E /Z /MOVE >> %logfile%
 cd %root%
-echo %col_norm% PgAdmin og postgresqlinstalleret. Overskydende filer slettes
+REM echo %col_norm% PgAdmin og postgresqlinstalleret. Overskydende filer slettes
 
 
 
@@ -318,15 +318,17 @@ echo pg_ctl -D %USERPROFILE%\pgdatabase -l logfile start >> %logfile%
 call pg_ctl -D %USERPROFILE%\pgdatabase -l logfile start
 
 
+REM echo.
+REM echo %col_impo% V?lg 'changeme' som password til den nye rolle (brugeren postgres)
+REM echo %col_impo% Indtastningen er USYNLIG, og skal g?res to gange i streg
+REM echo.
+REM echo "createuser -P -s -e postgres"
+REM call createuser -P -s -e postgres
+REM echo createdb vttt "--owner=postgres --host=localhost --port=5432 --username=postgres --no-password" >> %logfile%
+REM call createdb vttt "--owner=postgres --host=localhost --port=5432 --username=postgres --no-password"
+
 echo.
-echo %col_impo% V?lg 'changeme' som password til den nye rolle (brugeren postgres)
-echo %col_impo% Indtastningen er USYNLIG, og skal g?res to gange i streg
-echo.
-echo "createuser -P -s -e postgres"
-call createuser -P -s -e postgres
-echo createdb vttt "--owner=postgres --host=localhost --port=5432 --username=postgres --no-password" >> %logfile%
-call createdb vttt "--owner=postgres --host=localhost --port=5432 --username=postgres --no-password"
-|
+echo %col_impo% ER DU Nï¿½ET HER TIL, men der stï¿½r en fejl ovenfor, sï¿½ skal du _ikke_ geninstallere, men kontakte underviser
 
 echo.
 echo %col_norm% Postgresql er et program som h?ndtere databaser, og som du kan styre ved brug af programmeringssproget SQL
@@ -353,10 +355,10 @@ pause
 echo.
 echo %col_norm% --------------------------- PgAdmin skal nu s?ttes op til at bruge postgres databasen ------------------------------
 
-echo sqlite3 %USERPROFILE%\AppData\Roaming\pgadmin\pgadmin4.db "INSERT INTO server ("user_id", "servergroup_id", ssl_mode, "name", "host", "port", "maintenance_db", "username") VALUES ( 1, 1, 'prefer','vttt', 'localhost', '5432', 'postgres', 'postgres')"  >> %logfile%
-sqlite3 %USERPROFILE%\AppData\Roaming\pgadmin\pgadmin4.db "INSERT INTO server ("user_id", "servergroup_id", ssl_mode, "name", "host", "port", "maintenance_db", "username") VALUES ( 1, 1, 'prefer','vttt', 'localhost', '5432', 'postgres', 'postgres')"
-echo psql -U postgres -d vttt -c "CREATE EXTENSION postgis;"
-psql -U postgres -d vttt -c "CREATE EXTENSION postgis;"
+REM echo sqlite3 %USERPROFILE%\AppData\Roaming\pgadmin\pgadmin4.db "INSERT INTO server ("user_id", "servergroup_id", ssl_mode, "name", "host", "port", "maintenance_db", "username") VALUES ( 1, 1, 'prefer','vttt', 'localhost', '5432', 'postgres', 'postgres')"  >> %logfile%
+REM sqlite3 %USERPROFILE%\AppData\Roaming\pgadmin\pgadmin4.db "INSERT INTO server ("user_id", "servergroup_id", ssl_mode, "name", "host", "port", "maintenance_db", "username") VALUES ( 1, 1, 'prefer','vttt', 'localhost', '5432', 'postgres', 'postgres')"
+REM echo psql -U postgres -d vttt -c "CREATE EXTENSION postgis;"
+REM psql -U postgres -d vttt -c "CREATE EXTENSION postgis;"
 
 echo %col_norm% Til det skal du f?lge de her 5 steps:
 echo %col_norm% 1. ?ben PgAdmin (s?g efter PgAdmin)

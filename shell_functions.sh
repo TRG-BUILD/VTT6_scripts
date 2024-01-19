@@ -1,5 +1,6 @@
 # Config
-    
+
+environment_name="build2024"
 root=$HOME
 col_norm='\033[0;32m'
 col_impo='\033[1;31m'
