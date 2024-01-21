@@ -186,14 +186,6 @@ pause
 echo.
 echo %col_impo% Vent venligst.
 call conda install -c conda-forge %default% numpy matplotlib xlrd openpyxl pandas geopandas psycopg2 requests sqlite >> %logfile%
-REM call conda install -c conda-forge %default% matplotlib  >> %logfile%
-REM call conda install -c conda-forge %default% xlrd  >> %logfile%
-REM call conda install -c conda-forge %default% openpyxl  >> %logfile%
-REM call conda install -c conda-forge %default% pandas  >> %logfile%
-REM call conda install -c conda-forge %default% geopandas  >> %logfile%
-REM call conda install -c conda-forge %default% psycopg2  >> %logfile%
-REM call conda install -c conda-forge %default% requests  >> %logfile%
-REM call conda install -c conda-forge %default% sqlite  >> %logfile%
 
 call yes | pip install requests 
 
@@ -294,11 +286,11 @@ echo.
 
 Rem Install Postgres + PostGis
 echo.
-echo %col_norm% Postgresql og PgAdmin er ved at blive installeret. Vent venligst
+echo %col_norm% PgAdmin er ved at blive installeret. Vent venligst
 echo %col_norm% V?lg Install For Me. Derefter vil filer blive udpakket og flyttet
 
-REM echo %pgadmin_file% /VERYSILENT /NORESTART >> %logfile%
-REM call %pgadmin_file% /VERYSILENT /NORESTART /DIR=%root%\pgAdmin >> %logfile%
+echo %pgadmin_file% /VERYSILENT /NORESTART >> %logfile%
+call %pgadmin_file% /VERYSILENT /NORESTART /DIR=%root%\pgAdmin >> %logfile%
 REM echo powershell.exe -NoP -NonI -Command "Expand-Archive '.\%postgis_file%' '.\unziped\'" >> %logfile%
 REM call powershell.exe -NoP -NonI -Command "Expand-Archive '.\%postgis_file%' '.\unziped\'" >> %logfile%
 REM cd unziped
