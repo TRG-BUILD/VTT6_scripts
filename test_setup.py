@@ -17,21 +17,21 @@ try:
     import geopandas
     import psycopg2
     import requests
-
+    '''
     connect_to_database = psycopg2.connect(
         dbname="vttt",
         host="localhost",
         user="postgres",
         password="changeme"
     )
-
+    '''
     print("Alt korrekt installeret")
 except Exception as e:
     print("Fejl besked:")
     print(e)
     print("\n\n")
 
-    print("Bud på løsninger")
+    print("Bud pÃ¥ lÃ¸sninger")
     if "No module named" in str(e):
         print(f"""Installer de manglende pakker med pip install {e.name}""")
 
@@ -53,4 +53,4 @@ except Exception as e:
                 conda activate build
                 pg_ctl -D ~/pgdatabase -l logfile start""")
 
-    print("Virker det ikke? Kontakt underviser og vis den ovenstående fejl")
+    print("Virker det ikke? Kontakt underviser og vis den ovenstÃ¥ende fejl")
