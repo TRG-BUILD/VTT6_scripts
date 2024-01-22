@@ -97,18 +97,6 @@ echo.
 pause
 
 Rem Make sure it is run in admin mode (to reduce errors)
-call net session >nul 2>&1
-if %errorlevel% == 0 (
-    echo %col_norm% Installation af python p?begynder nu.
-    ) else (
-    cls
-    echo %col_impo% ----------------------------------------------------------------------------------------------------------------------
-    echo %col_impo%                  Terminalen er ikke startet i administrator tilstand, hvilket kan give problemer
-    echo %col_impo%                                H?jre klik p? filen og tryk "k?r som administrator
-    echo %col_impo% ----------------------------------------------------------------------------------------------------------------------
-    pause
-    exit
-    )
 
 Rem Download files for windows.
 echo %col_norm% Download nu 4 installationsfiler ca. 645 mb
