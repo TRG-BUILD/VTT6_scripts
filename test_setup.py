@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: WINDOWS-1252 -*-
 from sys import platform
+import argparse
 
 def print_system_commands(win: str, other: str) -> None:
     if platform.startswith('win'):
@@ -8,6 +9,18 @@ def print_system_commands(win: str, other: str) -> None:
     else:
         print(other)
 
+def parse_args():
+    """ Create argument parser and return na"""
+    parser = argparse.ArgumentParser(description="What to check in installation?")
+    parser.add_argument(
+        "-d",
+        "--database",
+        help="Do not check database",
+        action="store_true",
+        default=False,
+    )
+    return parser.parse_args()
+    
 try:
     import numpy
     import matplotlib
@@ -17,14 +30,15 @@ try:
     import geopandas
     import psycopg2
     import requests
-    '''
-    connect_to_database = psycopg2.connect(
-        dbname="vttt",
-        host="localhost",
-        user="postgres",
-        password="changeme"
-    )
-    '''
+    
+    if args.database:
+        connect_to_database = psycopg2.connect(
+            dbname="vttt",
+            host="localhost",
+            user="postgres",
+            password="changeme"
+        )
+    
     print("Alt korrekt installeret")
 except Exception as e:
     print("Fejl besked:")
