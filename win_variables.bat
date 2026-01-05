@@ -22,11 +22,11 @@ set pycharm_url=https://download-cdn.jetbrains.com/python/pycharm-community-2023
 set pycharm_file=pycharm.exe
 set pycharm_logfile=pycharm.log
 
-set postgis_url=https://download.osgeo.org/postgis/windows/pg15/postgis-bundle-pg15-3.4.1x64.zip
-set postgis_file=postgis-bundle-pg15-3.3.2x64.zip
+set postgis_url=https://download.osgeo.org/postgis/windows/pg15/postgis-bundle-pg15-3.6.1x64.zip
+set postgis_file=postgis-bundle-pg15-3.6.1x64.zip
 set postgis_logfile=postgis.log
 
-set pgadmin_url=https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.2/windows/pgadmin4-8.2-x64.exe
+set pgadmin_url=https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v9.11/windows/pgadmin4-9.11-x64.exe
 set pgadmin_file=pgadmin.exe
 set pgadmin_logfile=pgadmin.log
 
